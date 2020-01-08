@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h4>编程范式：命令式编程/声明式编程</h4>
+  <h4>编程范式：面向对象编程(第一公民：对象)/函数式编程(第一公民：函数)</h4>
+  <h4>高阶函数：filter/map/reduce</h4>
+  <h2></h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      // return: {
+      //   nums: [10, 300, 985, 20, 66, 88, 96, 152, 85]
+      // }
+    },
+    mounted() {
+      const nums = [10, 300, 985, 20, 66, 88, 96, 152, 85];
+
+      //简洁写法①
+      let total = nums.filter(n => {
+        return n < 100
+      }).map(n => {
+        return n * 2
+      }).reduce((previousValue, n) => {
+        return previousValue + n
+      }, 0);
+      console.log('total', total);
+
+      //简洁写法②
+      let total2 = nums.filter(n => n < 100).map(n => n * 2).reduce((previousValue2, n) => previousValue2 + n);
+      console.log('total2', total2);
+
+      //1、filter函数的使用
+      //filter函数要求必须返回Boolean值，当返回的是true时，函数内部会自动将这次的回调n加入到新的数组，为false时，函数会过滤掉这个n
+      let newNums = nums.filter(n => {
+        return n < 100
+      });
+      console.log(newNums);
+
+      //2、map函数的使用
+      let new2Nums = newNums.map(n => {
+        return n * 2
+      });
+      console.log(new2Nums);
+
+      //3、reduce函数的使用
+      //对数组中的所有内容进行汇总,需要传递两个值
+      let new3Num = new2Nums.reduce((preValue,n) => {
+        return preValue + n
+      }, 0);
+      console.log(new3Num)
+    },
+
+  })
+</script>
+</body>
+</html>

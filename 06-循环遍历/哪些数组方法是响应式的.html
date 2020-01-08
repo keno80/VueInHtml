@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <el>
+    <li v-for="item in letters">{{item}}</li>
+  </el>
+  <div>
+    <input type="button" value="push" @click="push">
+    <input type="button" value="pop" @click="pop">
+    <input type="button" value="shift" @click="shift">
+    <input type="button" value="unshift" @click="unshift">
+    <input type="button" value="splice删除" @click="spliceDelete">
+    <input type="button" value="splice插入" @click="spliceInsert">
+    <input type="button" value="splice替换" @click="spliceChange">
+    <input type="button" value="sort" @click="sort">
+    <input type="button" value="reverse" @click="reverse">
+  </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      letters:['A', 'B', 'C', 'D', 'E']
+    },
+    methods: {
+      //在数组最后面添加元素，可以一次性添加多个
+      push() {
+        this.letters.push('aaa', 'bbb', 'ccc')
+      },
+      //删除数组中的最后一个元素
+      pop() {
+        this.letters.pop()
+      },
+      //删除数组中的第一个元素
+      shift() {
+        this.letters.shift()
+      },
+      //在数组最前面添加元素
+      unshift() {
+        this.letters.unshift('aaa', 'bbbb', 'cccc')
+      },
+      //splice删除元素，当为删除时，第一个参数为从哪里开始，第二个参数为删除几个元素
+      spliceDelete() {
+        this.letters.splice(1, 3)
+      },
+      //splice插入元素，当为插入时，第一个参数为从哪里开始，第二个参数传0，表示不删除，后面是用于插入的元素
+      spliceInsert() {
+        this.letters.splice(1, 0, 'l', 'd', 'e')
+      },
+      //splice替换元素，当为替换时，第一个参数为从哪里开始，第二个参数为替换几个元素，后面是用于替换前面的元素
+      spliceChange() {
+        this.letters.splice(1, 3, 'l', 't', 'e', 'd', 'g')
+      },
+      sort() {
+        this.letters.sort()
+      },
+      //对数组内容进行反转
+      reverse() {
+        this.letters.reverse()
+      }
+    }
+  })
+</script>
+</body>
+</html>
