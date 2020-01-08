@@ -72,7 +72,7 @@
       <workItem from="1578123289438" duration="5226000" />
       <workItem from="1578462318577" duration="5615000" />
       <workItem from="1578470770209" duration="916000" />
-      <workItem from="1578482820050" duration="1465000" />
+      <workItem from="1578482820050" duration="4006000" />
     </task>
     <servers />
   </component>
@@ -85,9 +85,10 @@
     </state>
     <state x="287" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578486585961" />
     <state x="213" y="23" key="SettingsEditor/0.23.1424.724@0.23.1424.724" timestamp="1578123454362" />
-    <state x="377" y="71" width="670" height="676" key="search.everywhere.popup" timestamp="1578124472669">
-      <screen x="0" y="23" width="1424" height="724" />
+    <state x="508" y="69" width="904" height="972" key="search.everywhere.popup" timestamp="1578488204216">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="508" y="69" width="904" height="972" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578488204216" />
     <state x="377" y="71" width="670" height="676" key="search.everywhere.popup/0.23.1424.724@0.23.1424.724" timestamp="1578124472669" />
   </component>
 </project>

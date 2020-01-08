@@ -7,13 +7,19 @@
 <body>
 <div id="app">
   <h2>{{message}}</h2>
-  <my-cpn></my-cpn>
-  <my-cpn></my-cpn>
-  <my-cpn></my-cpn>
-  <my-cpn></my-cpn>
-  <my-cpn></my-cpn>
-  <my-cpn></my-cpn>
+  <mycpn></mycpn>
+  <mycpn></mycpn>
+  <mycpn></mycpn>
+  <mycpn></mycpn>
+  <mycpn></mycpn>
+  <mycpn></mycpn>
 </div>
+
+<div id="app2">
+  <!-- 此组件为app实例的组件，在这里无法使用 -->
+  <mycpn></mycpn>
+</div>
+
 <script src="../js/vue.js"></script>
 <script>
   //通过Vue.extend来创建一个组件构造器，通过传入template来传入一个组件模板
@@ -26,14 +32,22 @@
                </div>`
   });
 
-  //通过Vue.component()来注册组件，其中传入两个参数，第一个参数为自定义的组件名，第二个参数为通过extend创建的组件名字
-  Vue.component('my-cpn', myComponent);
+  //通过在Vue实例之外注册的组件为全局组件，使用Vue.component()来注册的组件，其中传入两个参数，第一个参数为自定义的组件名，第二个参数为通过extend创建的组件名字
+  // Vue.component('my-cpn', myComponent);
 
   const app = new Vue({
     el: '#app',
     data: {
       message: '你好啊'
+    },
+    //在此实例中注册的组件为局部组件，在其他实例中无法使用
+    components: {
+      mycpn: myComponent
     }
+  });
+
+  const app2 = new Vue({
+    el: '#app2'
   })
 </script>
 </body>
