@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  //通过Vue.extend来创建一个组件构造器，通过传入template来传入一个组件模板
+  const myComponent = Vue.extend({
+    template: `<div>
+                 <h2>我是标题</h2>
+                 <p>我是内容，哟哟哟哟哟</p>
+                 <p>我是内容，哟哟哟哟哟</p>
+               </div>`
+  });
+
+  //通过Vue.component()来注册组件，其中传入两个参数，第一个参数为自定义的组件名，第二个参数为通过extend创建的组件名字
+  Vue.component('my-cpn', myComponent);
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    }
+  })
+</script>
+</body>
+</html>
