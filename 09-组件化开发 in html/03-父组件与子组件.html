@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+
+  //子组件
+  //Vue.extend语法已经基本上启用，这里仅作为了解
+  const son = Vue.extend({
+    template: `<div>
+                 <h2>我是子组件</h2>
+                 <p>我是内容，哟哟哟哟哟</p>
+                 <p>我是内容，哟哟哟哟哟</p>
+               </div>`
+  });
+
+  //父组件，组件构造器也可以写components，可以将子组件注册进来直接使用，但是在这里注册的子组件只能在这里使用，如果需要在其他地方使用，需要重新在实例之中注册
+  //Vue.extend语法已经基本上启用，这里仅作为了解
+  const parent = Vue.extend({
+    template: `<div>
+                 <h2>我是父组件</h2>
+                 <p>我是内容，哟哟哟哟哟</p>
+                 <p>我是内容，哟哟哟哟哟</p>
+                 <cpn2></cpn2>
+               </div>`,
+    components: {
+      cpn2: son
+    }
+  });
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      cpn1: parent
+    }
+  })
+</script>
+</body>
+</html>
