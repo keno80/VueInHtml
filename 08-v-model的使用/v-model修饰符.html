@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- lazy修饰符 -->
+  <!-- 加上lazy修饰符以后，当输入框失去焦点后，数据才会进行绑定 -->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+  <!-- number修饰符 -->
+  <!-- 加上number修饰符以后，默认model会自动将输入框中的值转换为number类型 -->
+  <input type="number" v-model.number="age">
+  <h2>{{age}}-{{typeof age}}</h2>
+
+  <!-- trim修饰符 -->
+  <!-- 加上trim修饰符以后，如果首尾有很多空格，会自动去除 -->
+  <input type="text" v-model.trim="message">
+  <h2>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      age: 18
+    }
+  })
+</script>
+</body>
+</html>
