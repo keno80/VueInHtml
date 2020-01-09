@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <son :sonmessage="message" :sonbooks="books"></son>
+</div>
+
+<template id="son">
+  <div>
+    <h2>{{sonmessage}}</h2>
+    <h2>{{sonbooks}}</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+  Vue.component('son', {
+    template: '#son',
+    //父子之间通过props传值
+    // props: ['sonmessage', 'sonbooks']
+
+    //提供默认值
+    props: {
+      sonmessage: {
+        type: String,  //类型限制
+        default: 'aaaaa',
+        required: true  //指定该值为必须，类型是布尔值
+      },
+
+      //当类型是对象或数组时，默认值必须是一个函数
+      sonbooks: {
+        type: Array,  //类型限制
+        default() {
+          return []
+        }
+      }
+    }
+  });
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      books: ['海贼王', '那年那兔那些事', '如果历史是一群喵']
+    }
+  })
+</script>
+</body>
+</html>
