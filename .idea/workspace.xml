@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="00014277-b967-4c5b-8ba3-35aef86c4fff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09-组件化开发 in html/06-父子组件之间传递数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发 in html/06-父组件向子组件传递数据.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
