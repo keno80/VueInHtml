@@ -18,7 +18,7 @@
 <script src="../js/vue.js"></script>
 <script>
 
-  Vue.component('son', {
+  const son = {
     template: '#son',
     //父子之间通过props传值
     // props: ['sonmessage', 'sonbooks']
@@ -39,13 +39,16 @@
         }
       }
     }
-  });
+  };
 
   const app = new Vue({
     el: '#app',
     data: {
       message: '你好啊',
       books: ['海贼王', '那年那兔那些事', '如果历史是一群喵']
+    },
+    components: {
+      son
     }
   })
 </script>
