@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 通过自定义事件接收来自子组件的值 -->
+  <son :number1="num1" :number2="num2" @changenum1="cnum1" @changenum2="cnum2"></son>
+</div>
+
+<template id="son">
+  <div>
+    <h2>props: {{number1}}</h2>
+    <h2>data: {{sonnumber1}}</h2>
+    <input type="text" :value="sonnumber1" @input="changeNum1">
+    <h2>props: {{number2}}</h2>
+    <h2>data: {{sonnumber2}}</h2>
+    <input type="text" :value="sonnumber2" @input="changeNum2">
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //需求:
+  //1、将父组件的num1以及num2传递到子组件
+  //2、创建一个input，通过v-model对number1和number2进行双向绑定，当input发生改变时，改变number1和number2
+  //3、当子组件里面的number发生改变时，更改父组件里面的num1和num2
+  //4、当num1的值改变时，num2的值为num1的100倍，当num2的值改变时，num1的值为num2的100分之1
+
+
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      num1: 0,
+      num2: 1
+    },
+    methods: {
+      cnum1(son1num) {
+        this.num1 = parseInt(son1num)
+      },
+      cnum2(son2num) {
+        this.num2 = parseInt(son2num)
+      }
+    },
+    components: {
+      son: {
+        template: '#son',
+        props: {
+          number1: Number,
+          number2: Number
+        },
+        data() {
+          return {
+            //Vue官方规定，v-model绑定的数据如果是props里面的数据不能直接进行更改，因此需要将props的数据传到data里面，通过data来进行更改
+            sonnumber1: this.number1,
+            sonnumber2: this.number2
+          }
+        },
+        methods: {
+          changeNum1(event) {
+            //通过@input和event.target.value来获取绑定的value值
+            this.sonnumber1 = event.target.value;
+            //将获取的值通过$emit传递给父组件
+            this.$emit('changenum1', this.sonnumber1);
+            //修改sonnumber2的值为sonnumber1的100倍
+            this.sonnumber2 = this.sonnumber1 * 100;
+            this.$emit('changemnum2', this.sonnumber2)
+          },
+          changeNum2(event) {
+            //通过@input和event.target.value来获取绑定的value值
+            this.sonnumber2 = event.target.value;
+            //将获取的值通过$emit传递给父组件
+            this.$emit('changenum2', this.sonnumber2);
+            //修改sonnumber1的值为sonnumber2的100分之一
+            this.sonnumber1 = this.sonnumber2 / 100;
+            this.$emit('changemnum1', this.sonnumber1)
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
