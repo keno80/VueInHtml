@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!-- 父组件模板 -->
+<div id="app">
+  <h2>{{total}}</h2>
+  <!-- 在父组件引用的子组件的地方绑定这个自定义事件 -->
+  <son @sondec="changetotal" @soninc="changetotal"></son>
+</div>
+
+<!-- 子组件模板 -->
+<template id="son">
+  <div>
+    <button @click="counterdec">-</button>
+    <button @click="counterinc">+</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+  const son = ('son', {
+    template: '#son',
+    data() {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      counterdec() {
+        this.counter--;
+        this.$emit('sondec', this.counter)  //通过$emit将自定义事件传递到父组件
+      },
+      counterinc() {
+        this.counter++;
+        this.$emit('soninc', this.counter)  //通过$emit将自定义事件传递到父组件
+      }
+    }
+  });
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      total: 0,
+    },
+    components: {
+      son
+    },
+    methods: {
+      changetotal(counter) {
+        console.log('1', counter);
+        this.total = counter
+      }
+    }
+  })
+</script>
+</body>
+</html>
