@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <son :number1="num1" :number2="num2" @sonchange1="cnum1" @sonchange2="cnum2"></son>
+</div>
+
+<template id="son">
+  <div>
+    <h2>Props:{{number1}}</h2>
+    <h2>Data:{{sonnumber1}}</h2>
+    <input type="text" v-model="sonnumber1">
+    <h2>Props:{{number2}}</h2>
+    <h2>Data:{{number2}}</h2>
+    <input type="text" v-model="sonnumber2">
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      num1: 1,
+      num2: 0
+    },
+    methods: {
+      cnum1(value) {
+        this.num1 = parseInt(value)
+      },
+      cnum2(value) {
+        this.num2 = parseInt(value)
+      }
+    },
+    components: {
+      son: {
+        template: '#son',
+        props: {
+          number1: Number,
+          number2: Number
+        },
+        data() {
+          return {
+            sonnumber1: this.number1,
+            sonnumber2: this.number2
+          }
+        },
+        watch:{
+          sonnumber1(newValue) {
+            this.sonnumber2 = newValue * 100
+            this.$emit('sonchange1', newValue)
+          },
+          sonnumber2(newValue) {
+            this.sonnumber1 = newValue / 100
+            this.$emit('sonchange2', newValue)
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
