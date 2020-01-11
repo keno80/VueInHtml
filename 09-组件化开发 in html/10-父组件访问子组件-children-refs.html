@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <son></son>
+  <!-- 通过ref绑定一个单独的名字 -->
+  <son ref="test"></son>
+  <input type="button" value="show" @click="btnClick">
+</div>
+
+<template id="son">
+  <div>
+    <h2>我是子组件</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    methods: {
+      btnClick() {
+        // //1、通过this.$children访问子组件的方法以及其他属性
+        // console.log(this.$children);
+        // //由于$children是一个数组，因此可以通过数组的方式拿到想要的值
+        // console.log(this.$children[0].name);
+        // //同时可以通过$children来调用子组件的方法
+        // this.$children[0].showMessage()
+
+        //2、通过this.$refs来获取子组件的属性，由于$refs默认值为一个空的对象，因此需要在标签上进行绑定，在调用的通过
+        //this.$refs.xxx来进行获取
+        console.log(this.$refs.test);
+        console.log(this.$refs.test.name);
+        this.$refs.test.showMessage()
+
+        //总结：由于this.$children是数组形式，因此如果通过下标来进行修改，当多个子组件中间插入新的子组件时，容易获取不到自己需要的子组件的数据
+        //而通过$refs来获取的话，由于每个子组件都绑定了唯一的一个ref，因此可以准确的获取到自己需要的子组件的数据。
+      }
+    },
+    components: {
+      son: {
+        template: '#son',
+        methods: {
+          showMessage() {
+            console.log('showMessage');
+          }
+        },
+        data() {
+          return {
+            name: '子组件的名字'
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
