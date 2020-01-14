@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <son><i>取代默认值</i></son>
+  <son>
+    <h2>多个元素会一起放入同一个插槽</h2>
+    <i>多个元素会一起放入同一个插槽</i>
+  </son>
+  <son></son>
+  <son></son>
+</div>
+
+<!--
+可以为插槽指定一个默认值
+如果有多个值，会一起放入一个插槽
+-->
+
+<template id="son">
+  <div>
+    <h2>插槽</h2>
+    <h2>777777777</h2>
+    <slot><button>按钮</button></slot>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      son: {
+        template: '#son'
+      }
+    }
+  })
+</script>
+</body>
+</html>

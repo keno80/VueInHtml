@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="00014277-b967-4c5b-8ba3-35aef86c4fff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09-组件化开发 in html/父子组件传值-v-model-watch实现.html" beforeDir="false" afterPath="$PROJECT_DIR$/09-组件化开发 in html/09-父子组件传值-v-model-watch实现.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1578482820050" duration="4639000" />
       <workItem from="1578535870557" duration="7015000" />
       <workItem from="1578712102209" duration="4109000" />
-      <workItem from="1578725249878" duration="1855000" />
+      <workItem from="1578725249878" duration="3809000" />
     </task>
     <servers />
   </component>
@@ -158,10 +157,10 @@
     </state>
     <state x="287" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578486585961" />
     <state x="213" y="23" key="SettingsEditor/0.23.1424.724@0.23.1424.724" timestamp="1578123454362" />
-    <state x="377" y="71" width="670" height="676" key="search.everywhere.popup" timestamp="1578727043146">
+    <state x="377" y="71" width="670" height="676" key="search.everywhere.popup" timestamp="1578729349807">
       <screen x="0" y="23" width="1424" height="724" />
     </state>
     <state x="508" y="69" width="904" height="972" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578488204216" />
-    <state x="377" y="71" width="670" height="676" key="search.everywhere.popup/0.23.1424.724@0.23.1424.724" timestamp="1578727043146" />
+    <state x="377" y="71" width="670" height="676" key="search.everywhere.popup/0.23.1424.724@0.23.1424.724" timestamp="1578729349807" />
   </component>
 </project>
