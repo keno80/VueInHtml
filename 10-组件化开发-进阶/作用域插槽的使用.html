@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 子组件提供内容，但是标签由父组件提供 -->
+<div id="app">
+  <son>
+    <!-- 父组件通过slot-scope属性来绑定该slot -->
+    <div slot-scope="slot">
+      <!-- 循环时，通过slot.你命名的属性名来进行展示 -->
+      <span v-for="item in slot.data">{{item}}</span>
+      <br>
+      <span>{{slot.data.join('-')}}</span>
+    </div>
+  </son>
+</div>
+
+<template id="son">
+  <div>
+    <!-- 通过为slot绑定一个属性，该属性可以任意命名，其值为需要给父组件的数据的值 -->
+    <slot :data="showLanguages">
+      <ul>
+        <li v-for="item in showLanguages">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      son: {
+        template: '#son',
+        data() {
+          return {
+            showLanguages: ['Java', 'C#', 'C++', 'Python', 'Swift', 'Go']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
