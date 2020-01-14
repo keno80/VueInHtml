@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 由于这个子组件在Vue的app实例之中，所以这个v-show的变量作用域回去Vue的这个实例之中去寻找 -->
+  <son v-show="isShow"></son>
+</div>
+
+<template id="son">
+  <div>
+    <h2>1111111</h2>
+    <h2>222</h2>
+    <!-- 而由于这个button在子组件模板之中，所以这个v-show的变量作用域会去son这个模板之中去寻找 -->
+    <button v-show="isShow">按钮</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      isShow: true
+    },
+    components: {
+      son: {
+        template: '#son',
+        data() {
+          return {
+            isShow: false
+          }
+        }
+      },
+    }
+  })
+</script>
+</body>
+</html>
