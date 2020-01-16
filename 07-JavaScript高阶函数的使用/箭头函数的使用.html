@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  //箭头函数的参数问题
+  //1、放入两个参数
+  const sum = (num1, num2) => {
+    return num1 + num2
+  }
+  //2、放入一个参数
+  const power = (num) => {
+  // const power = num => {   当放入一个参数时，参数的括号可省略
+    return num * num
+  }
+  //箭头函数的简便写法
+  //当代码块中只有一行代码时，可以简写为一行代码
+  const mul = (num1, num2) => {
+    return num1 * num2
+  }
+  //上面的代码可以简写为下面这种形式，可以直接返回结果的返回值
+  const mul = (num1, num2) => num1 * num2
+</script>
+</body>
+</html>
